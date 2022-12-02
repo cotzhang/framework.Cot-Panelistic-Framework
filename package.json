@@ -1,33 +1,20 @@
 {
-	"name": "electron-acrylic-window",
+	"name": "framework-app-name",
 	"version": "0.5.11",
-	"description": "Add vibrancy effect for electron",
+	"description": "Desktop framework of panelistic 3.0",
 	"keywords": [
-		"node",
+		"panelistic",
 		"vibrancy",
-		"napi",
-		"windows",
-		"vibrant",
-		"acrylic",
-		"win10",
-		"windows10",
 		"blur",
 		"fluent",
 		"electron"
 	],
-	"homepage": "https://github.com/Seo-Rii/electron-acrylic-window#readme",
-	"bugs": {
-		"url": "https://github.com/Seo-Rii/electron-acrylic-window/issues",
-		"email": "studioSeoRii@gmail.com"
-	},
-	"repository": "https://github.com/Seo-Rii/electron-acrylic-window",
-	"license": "MIT",
-	"author": "seorii <studioSeoRii@gmail.com>",
+	"author": "Cot Zhang",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "node-gyp rebuild && tsc",
 		"install": "node-gyp rebuild",
-		"test": "yarn build && yarn --cwd examples/customizable start",
+		"test": "yarn build && yarn --cwd app start",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
 		"lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
 		"release": "standard-version",

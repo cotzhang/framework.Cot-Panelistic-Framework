@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="panelistic2.0.1-electron.css">
+	<title>Cot Desktop Application Framework</title>
+	<style type="text/css"></style>
+	<script type="text/javascript">
+		let $ = document.querySelector;
+		const electron = require("electron");
+		window.onload=function() {
+			document.getElementById('window_title').innerText=document.title;
+		}
+		const remote = require("@electron/remote");
+	</script>
+</head>
+<body>
+	<div id="panelistic_window" ondragstart="return false;">
+		<div id="panelistic_titlebar">
+			<span id="window_title"></span>
+			<img src="src/btn/window/Close.svg" class="panelistic_controlbtn" id="controlbtn_closebtn" onclick="window.close();">
+			<img src="src/btn/window/min.png" class="panelistic_controlbtn" id="controlbtn_minbtn" onclick="remote.getCurrentWindow().minimize()">
+		</div>
+		<div id="panelistic_content">
+			<h1>Page Title</h1>
+			<h6>This is a subtitle which has a small font.</h6>
+			<span class="panelistic_placeholder"></span>
+			<div class="panelistic_panel">
+				<input type="text" value="This is an input">
+				<input type="button" value="Button"><br>
+				<span class="panelistic_placeholder"></span>
+				<select>
+					<option>Dropbox 1</option>
+					<option>Dropbox 2</option>
+					<option>Dropbox 3</option>
+					<option>Dropbox 4</option>
+				</select>
+				<span class="panelistic_placeholder"></span>
+				<div class="panelistic_checkbox"><input type="checkbox"><span class="panelistic_checkbox_text">Checkbox Text</span></div>
+				<span class="panelistic_placeholder"></span>
+				<textarea>Textarea test</textarea>
+			</div>
+			<div class="panelistic_panel">
+				<img src="src/img/example.jpg">
+				<span class="panelistic_placeholder"></span>
+				<div class="panelistic_code"><code>This is an example of the code area<br>12345<br>67890</code></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

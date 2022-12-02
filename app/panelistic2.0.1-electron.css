@@ -1,0 +1,273 @@
+/*version: panelistic 2.0.2 for Electron apps*/
+/*author: cotzhang@github*/
+
+* {
+    transition: 0.2s;
+}
+
+@font-face {
+    font-family: 'sfr';
+    src: url(./font/sfr.ttf);
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	margin: 0px;
+	top: 0px;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	font-family: "sfr";
+	font-weight: normal;
+	user-select:none;
+}
+
+::selection {
+	 background: #aacccc88;
+}
+
+#panelistic_window{
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	color: black;
+}
+
+#panelistic_titlebar{
+	height: 20px;
+	-webkit-app-region: drag;
+	padding-top: 6px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	font-size:14px
+}
+
+.panelistic_controlbtn{
+	position: absolute;
+	top: 0px;
+	filter: invert(100%);
+	-webkit-app-region: none;
+}
+
+#controlbtn_closebtn{
+	right: 0px;
+}
+
+#controlbtn_closebtn:hover{
+	filter: invert(0%);
+	background-color: #ff0000;
+}
+
+#controlbtn_closebtn:active{
+	filter: invert(0%);
+	background-color: #ff6666;
+}
+
+#controlbtn_minbtn:hover{
+	background-color: #111;
+}
+
+#controlbtn_minbtn:active{
+	background-color: #222;
+}
+
+#controlbtn_minbtn{
+	right: 45px;
+}
+
+#panelistic_content{
+	padding: 8px;
+	height: calc(100% - 46px);
+	overflow:auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #88888855;
+}
+::-webkit-scrollbar-track {
+	background-color: #00000000;
+}
+::-webkit-scrollbar-thumb:horizontal {
+	background-color: #88888855;
+}
+::-webkit-scrollbar-track:horizontal {
+	background-color: #00000000;
+}
+::-webkit-scrollbar-corner {
+	background-color: #00000000;
+}
+
+h1{
+	font-family: "sfr";
+	margin: 0px;
+	margin-top: 8px;
+	z-index: 1;
+}
+
+h6{
+	margin: 0px;
+	margin-left: 2px;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+input,textarea{
+	outline: none;
+	border: 1px solid #cccccc99;
+	background-color: #ffffff88;
+	border-radius: 8px;
+	padding: 9px;
+	margin: 0px;
+	font-family: sfr;
+}
+
+textarea{
+	max-width: calc(100% - 20px);
+}
+
+.panelistic_checkbox{
+	outline: none;
+	border: 1px solid #cccccc99;
+	background-color: #ffffff88;
+	border-radius: 8px;
+	padding: 8px;
+	padding-top: 5px;
+	margin: 0px;
+	font-family: sfr;
+}
+
+.panelistic_checkbox input{
+	margin-top: 5px;
+}	
+
+.panelistic_checkbox_text{
+	padding-left: 7px;
+	font-size: 13px;
+	position: relative;
+	top: -2px;
+}
+
+.panelistic_checkbox:hover{
+	border: 1px solid #bbbbbb99;
+	background-color: #eeeeee88;
+}
+
+.panelistic_checkbox:active{
+	border: 1px solid #aaaaaa99;
+	background-color: #cccccc88;
+}
+
+input:hover,textarea:hover{
+	border: 1px solid #bbbbbb99;
+	background-color: #eeeeee88;
+}
+
+input:active,textarea:active{
+	border: 1px solid #aaaaaa99;
+	background-color: #cccccc88;
+}
+
+input[type="button"]{
+	cursor: pointer;
+}
+
+img:not(.panelistic_controlbtn){
+	border-radius: 8px;
+}
+
+.panelistic_panel:hover{
+	box-shadow: 0 0 10px #00000022;
+}
+
+.panelistic_panel:active{
+	background-color: #ffffff55;
+}
+
+select{
+	outline: none;
+	padding: 8px;
+	border-radius: 8px;
+	border: 1px solid #cccccc99;
+	background-color: #ffffff88;
+	font-family: sfr;
+}
+
+select:hover{
+	border: 1px solid #bbbbbb99;
+	background-color: #eeeeee88;
+}
+
+select:active{
+	border: 1px solid #aaaaaa99;
+	background-color: #cccccc88;
+}
+
+select option{
+	color: black;
+	background-color: #ffffff88;
+	font-family: sfr;
+}
+
+.panelistic_placeholder{
+	margin: 6px;
+	position: relative;
+	display: block;
+}
+
+.panelistic_code{
+	background-color: #303841;
+	border-radius: 8px;
+	padding: 8px;
+	color: white;
+	user-select: text;
+}
+
+.panelistic_panel{
+	background-color: #ffffff66;
+	padding: 8px;
+	border-radius: 10px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: solid 1px #ffffff00;
+}
+
+@media (prefers-color-scheme: dark) {
+	#panelistic_window{
+		color: white;
+	}
+	.panelistic_controlbtn{
+		filter: invert(0%);
+	}
+	#controlbtn_minbtn:active{
+		background-color: #888;
+	}
+	input,select,.panelistic_checkbox,textarea{
+		border: 1px solid #44444499;
+		background-color: #33333388;
+		color: white;
+	}
+	.panelistic_panel{
+		background-color: #44444455;
+	}
+	.panelistic_panel:hover{
+		box-shadow: 0 0 10px #00000022;
+	}
+	.panelistic_panel:active{
+		background-color: #66666655;
+	}
+	input:hover,select:hover,.panelistic_checkbox:hover,textarea:hover{
+		background-color: #33333388;
+	}
+	input:active,select:active,.panelistic_checkbox:active,textarea:active{
+		background-color: #66666655;
+	}
+}
