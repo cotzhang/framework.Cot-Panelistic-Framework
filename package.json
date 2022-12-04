@@ -19,7 +19,8 @@
 		"lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
 		"release": "standard-version",
 		"prepare": "husky install",
-		"pre-commit": "lint-staged"
+		"pre-commit": "lint-staged",
+		"start": "yarn --cwd app start"
 	},
 	"commitlint": {
 		"extends": [

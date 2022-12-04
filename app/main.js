@@ -24,18 +24,25 @@ function isVibrancySupported() {
 	)
 }
 
-function spawnWindow(){
-	let vibrancy = 'dark'
+let vibrancy = 'dark'
 	//debug(true)
-	if (isVibrancySupported()) {
-		vibrancy = {
-			theme: '#dddddd88',
-			effect: 'acrylic',
-			useCustomWindowRefreshMethod: true,
-			disableOnBlur: true,
-			debug: false,
-		}
+if (isVibrancySupported()) {
+	vibrancy = {
+		theme: '#dddddd88',
+		effect: 'acrylic',
+		useCustomWindowRefreshMethod: true,
+		disableOnBlur: true,
+		debug: false,
 	}
+}
+if(electron.nativeTheme.shouldUseDarkColors){
+	vibrancy.theme="#22222288";
+}else{
+	vibrancy.theme="#dddddd88";
+}
+
+function spawnWindow(){
+	
 
 	win = new BrowserWindow({
 		width: 600,
@@ -62,3 +69,13 @@ function spawnWindow(){
 	});
 	return win;
 }
+
+electron.nativeTheme.on('updated', () => {
+  	const wins = BrowserWindow.getAllWindows();
+  	if(electron.nativeTheme.shouldUseDarkColors){
+  		vibrancy.theme="#22222288";
+  	}else{
+  		vibrancy.theme="#dddddd88";
+  	}
+  	win.setVibrancy(vibrancy)
+});
